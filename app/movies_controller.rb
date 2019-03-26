@@ -27,7 +27,7 @@ def can_be_created_in_a_block(title: "Home Alone", release_date: 1990)
   # If no arguments are passed, use default values:
   # title == "Home Alone"
   # release_date == 1990
-  
+
   Movie.create do |m|
     # m.title = args[:title]
     # m.release_date = args[:release_date]
@@ -61,7 +61,7 @@ def can_find_by_multiple_attributes
 end
 
 def can_find_using_where_clause_and_be_sorted
-  # For this test return all movies released after 2002 and ordered by 
+  # For this test return all movies released after 2002 and ordered by
   # release date descending
   Movie.where("release_date > 2002").order("release_date DESC")
 end
@@ -76,8 +76,8 @@ end
 def can_update_using_update_method
   # Update movie title to "Wat, huh?"
   Movie.create(title: "Wat?")
-  __
-  __
+  movie = Movie.find_by(title: "Wat?")
+  movie.update(title: "Wat, huh?")
 end
 
 def can_update_multiple_items_at_once
@@ -99,5 +99,5 @@ def can_destroy_all_items_at_once
     Movie.create(title: "Movie_#{i}")
   end
   __
-  
+
 end
